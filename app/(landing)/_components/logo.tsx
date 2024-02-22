@@ -9,14 +9,11 @@ const font = Poppins({
 
 export const Logo = () => {
   return (
-    <div className="flex items-center justify-center">
-      <Image
-        src="/logo.svg"
-        alt="Potion"
-        width={100}
-        height={100}
-        className={cn("cursor-pointer", font)}
-      />
+    <div className="hidden md:flex items-center justify-center gap-x-2">
+      <Image src="/code-copy.svg" alt="Potion" width={40} height={40} />
+      <p className={cn("font-semibold", font.className)}>Potion</p>
     </div>
   );
 };
+
+// Nice idea to apply to Portfolio // Prioritize...
