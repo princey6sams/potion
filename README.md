@@ -1,5 +1,8 @@
 # A notion clone to further hone my web development skills along with design tricks to effectively manage layouts and organization of content.
 
+Mainly utilized to learn:
+- Advanced React concepts and development patterns.
+- Advanced Tailwind usage to create dynamic and reactive UI elements.
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
