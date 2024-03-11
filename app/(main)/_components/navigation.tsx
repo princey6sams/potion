@@ -1,7 +1,7 @@
 "use client";
 import { ChevronsLeft, Menu, MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
-import React, { ElementRef, useRef, useState } from "react";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "../../../lib/utils";
 
@@ -14,6 +14,20 @@ const Navigation = () => {
   const navbarRef = useRef<ElementRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    } else {
+      resetWidth();
+    }
+  }, [isMobile]); // Don't need resetwidth here due to using refs
+
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    }
+  }, [pathname, isMobile]); // To collapse on mobile when navigating
 
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -34,11 +48,11 @@ const Navigation = () => {
     if (newWidth > 480) newWidth = 480;
 
     if (sidebarRef.current && navbarRef.current) {
-      sidebarRef.current.style.width = `${newWidth}px`;
+      sidebarRef.current.style.width = isMobile ? "100%" : `${newWidth}px`;
       navbarRef.current.style.setProperty("left", `${newWidth}px`);
       navbarRef.current.style.setProperty(
         "width",
-        `calc(100% - ${newWidth}px)`
+        isMobile ? "0" : `calc(100% - ${newWidth}px)`
       );
     }
   };
