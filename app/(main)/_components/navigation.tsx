@@ -10,7 +10,7 @@ const Navigation = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const isResizingRef = useRef(false);
-  const sidebarRef = useRef<ElementRef<"aside">>(null);
+  const sidebarRef = useRef<ElementRef<"aside">>(null); // Nice ref example
   const navbarRef = useRef<ElementRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
@@ -46,7 +46,24 @@ const Navigation = () => {
   const handleMouseUp = () => {
     isResizingRef.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", handleMouseUp);
+    document.removeEventListener("mouseup", handleMouseUp); // Nice implementation of sidebar adjustability
+  };
+
+  const resetWidth = () => {
+    if (sidebarRef.current && navbarRef.current) {
+      setIsCollapsed(false);
+      setIsResetting(true);
+
+      sidebarRef.current.style.width = isMobile ? "100%" : "240px";
+      navbarRef.current.style.setProperty(
+        "width",
+        isMobile ? "0" : "calc(100% - 240px)" // calculated value example
+      );
+      navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
+      setTimeout(() => {
+        setIsResetting(false);
+      }, 300);
+    }
   };
 
   return (
@@ -82,7 +99,7 @@ const Navigation = () => {
         </div>
         <div
           onMouseDown={handleMouseDown}
-          onClick={() => {}}
+          onClick={resetWidth}
           className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
         />
       </aside>
