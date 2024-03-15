@@ -42,12 +42,25 @@ const Item = ({
       )}
     >
       {!!id /*Turns to bool*/ && (
-        <div>
-          <ChevronDown />
+        <div
+          role="butto"
+          className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
+          onClick={() => {}}
+        >
+          <ChevronIcon className="h-4 w-4 shrinnnk-0 text-muted-background/50" />
         </div>
       )}
-      <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+      {documentIcon ? (
+        <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
+      ) : (
+        <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+      )}
       <span className="truncate">{label}</span>
+      {isSearch && (
+        <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] fonnt-medium text-muted-foreground opacity-100">
+          <span className="text-xs">ctrl</span>+ K
+        </kbd>
+      )}
     </div>
   );
 };
