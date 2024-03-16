@@ -69,6 +69,13 @@ const Item = ({
           <span className="text-xs">ctrl</span>+ K
         </kbd>
       )}
+      {!!id && (
+        <div className="ml-auto flex items-center gap-x-2">
+          <div className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover-neutral-600">
+            <Plus className="h-4 2-4 text-muted-foreground" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
