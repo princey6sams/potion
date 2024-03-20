@@ -58,7 +58,7 @@ const Item = ({
     event.stopPropagation();
     if (!id) return;
 
-    const promise = archive({ id });
+    const promise = archive({ id }); // API only queries for isArchived:False
 
     toast.promise(promise, {
       loading: "Moving item to trash...",
