@@ -4,7 +4,7 @@ Mainly utilized to learn:
 
 - Advanced React concepts and development patterns.
 - Advanced Tailwind usage to create dynamic and reactive UI elements.
-- Further Next.js familiarity.
+- Further Next.js familiarity and expertise.
 
 Instructions to test/buid/run as outlined below:
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
