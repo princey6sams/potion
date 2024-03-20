@@ -18,7 +18,7 @@ export const Heading = () => {
       </h1>
       <h3>
         Potion is the connected workspace where
-        <br /> you can actually cook everything up.
+        <br /> you can cook amd refrigerate your ideas.
       </h3>
       {isLoading && (
         <div className="w-full flex items-center justify-center">
